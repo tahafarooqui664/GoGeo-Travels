@@ -1,6 +1,11 @@
-import express from 'express';
-import multer from 'multer';
+import express, { Request, Response } from 'express';
+import multer, { FileFilterCallback } from 'multer';
 import { ImageUploadService } from '../services/imageUpload';
+
+// Extend Request interface to include file property
+interface MulterRequest extends Request {
+  file?: Express.Multer.File;
+}
 
 const router = express.Router();
 
@@ -10,7 +15,7 @@ const upload = multer({
   limits: {
     fileSize: 10 * 1024 * 1024, // 10MB limit
   },
-  fileFilter: (req, file, cb) => {
+  fileFilter: (req: Request, file: Express.Multer.File, cb: FileFilterCallback) => {
     // Check if file is an image
     if (file.mimetype.startsWith('image/')) {
       cb(null, true);
@@ -24,7 +29,7 @@ const upload = multer({
  * POST /api/upload/image
  * Upload a single image to Cloudinary
  */
-router.post('/image', upload.single('image'), async (req, res) => {
+router.post('/image', upload.single('image'), async (req: MulterRequest, res: Response) => {
   try {
     if (!req.file) {
       return res.status(400).json({
@@ -69,7 +74,7 @@ router.post('/image', upload.single('image'), async (req, res) => {
  * DELETE /api/upload/image/:publicId
  * Delete an image from Cloudinary
  */
-router.delete('/image/:publicId', async (req, res) => {
+router.delete('/image/:publicId', async (req: Request, res: Response) => {
   try {
     const { publicId } = req.params;
     
@@ -102,7 +107,7 @@ router.delete('/image/:publicId', async (req, res) => {
  * POST /api/upload/base64
  * Upload image from base64 string
  */
-router.post('/base64', async (req, res) => {
+router.post('/base64', async (req: Request, res: Response) => {
   try {
     const { image, folder = 'vehicles', publicId } = req.body;
 
