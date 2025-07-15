@@ -1,27 +1,34 @@
 {
-  "name": "london-aviation-frontend",
+  "name": "gogeo-travels-frontend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel:build": "next build",
+    "vercel:start": "next start"
   },
   "keywords": [
-    "helicopter",
+    "luxury-transport",
     "private-jet",
+    "helicopter",
     "london",
-    "aviation"
+    "manchester",
+    "budapest",
+    "madrid",
+    "booking-platform"
   ],
-  "author": "",
+  "author": "GoGeo Travels London",
   "license": "ISC",
-  "description": "Elegant transportation booking platform for London - helicopters, private jets, buses, and private cars",
+  "description": "GoGeo Travels London - Luxury transportation booking platform for helicopters, private jets, buses, and private cars",
   "dependencies": {
     "@types/node": "^24.0.13",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "autoprefixer": "^10.4.21",
+    "cloudinary-react": "^1.8.1",
     "eslint": "^9.31.0",
     "eslint-config-next": "^15.3.5",
     "next": "^15.3.5",
