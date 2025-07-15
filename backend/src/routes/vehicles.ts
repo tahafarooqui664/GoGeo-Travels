@@ -182,10 +182,8 @@ const vehicleValidation = [
 // POST /api/vehicles - Create new vehicle
 router.post('/', vehicleValidation, async (req: Request, res: Response) => {
   try {
-    console.log('Received vehicle data:', JSON.stringify(req.body, null, 2));
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      console.log('Validation errors:', errors.array());
       const response: ApiResponse = {
         success: false,
         message: 'Validation failed',
