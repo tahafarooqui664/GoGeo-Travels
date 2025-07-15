@@ -43,7 +43,7 @@ app.get('/health', (req, res) => {
 // Simple database test endpoint
 app.get('/api/db-test', async (req, res) => {
   try {
-    const { PrismaClient } = await import('./generated/prisma');
+    const { PrismaClient } = await import('@prisma/client');
     const testPrisma = new PrismaClient();
 
     // Simple query to test connection
