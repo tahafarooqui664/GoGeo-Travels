@@ -20,7 +20,8 @@ app.use(cors({
   origin: [
     process.env.FRONTEND_URL || 'http://localhost:3000',
     'http://localhost:3001',
-    /\.railway\.app$/,
+    /\.render\.com$/,
+    /\.onrender\.com$/,
     /\.vercel\.app$/,
     /\.netlify\.app$/
   ],

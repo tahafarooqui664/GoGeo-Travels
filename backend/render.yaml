@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: gogeo-travels-backend
+    env: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ADMIN_EMAIL
+        value: admin@gogeotravels.com
+      - key: ADMIN_NAME
+        value: GoGeo Travels London Admin
+      - key: BREVO_SENDER_EMAIL
+        value: noreply@gogeotravels.com
+      - key: BREVO_SENDER_NAME
+        value: GoGeo Travels London
+      - key: CLOUDINARY_CLOUD_NAME
+        value: dnluxha1i
+      - key: CLOUDINARY_API_KEY
+        value: "199955313277347"
+      - key: CLOUDINARY_API_SECRET
+        sync: false # This will be set manually in Render dashboard
+      - key: CLOUDINARY_URL
+        sync: false # This will be set manually in Render dashboard
+      - key: DATABASE_URL
+        sync: false # This will be set manually in Render dashboard
+      - key: FRONTEND_URL
+        sync: false # This will be set manually in Render dashboard
+      - key: BREVO_API_KEY
+        sync: false # This will be set manually in Render dashboard
