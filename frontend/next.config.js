@@ -24,10 +24,6 @@ const nextConfig = {
   generateEtags: true,
   trailingSlash: false,
   reactStrictMode: true,
-  swcMinify: true,
-  experimental: {
-    optimizeCss: true,
-  },
 }
 
 module.exports = nextConfig
