@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { apiService, City } from '@/services/api';
 import ImageUpload from '@/components/ImageUpload';
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
 interface BookingRequest {
   id: string;
   firstName: string;
@@ -61,7 +63,7 @@ export default function AdminPage() {
   // Status update functionality
   const updateBookingStatus = async (bookingId: string, newStatus: string) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/booking/${bookingId}/status`, {
+      const response = await fetch(`${API_BASE_URL}/booking/${bookingId}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -90,7 +92,7 @@ export default function AdminPage() {
     if (!isAuthenticated || !selectedCity) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/api/vehicles?city=${selectedCity}`);
+      const response = await fetch(`${API_BASE_URL}/vehicles?city=${selectedCity}`);
       if (response.ok) {
         const data = await response.json();
         if (data.success && data.data) {
@@ -123,8 +125,8 @@ export default function AdminPage() {
       };
 
       const url = editingVehicle
-        ? `http://localhost:5000/api/vehicles/${editingVehicle}`
-        : 'http://localhost:5000/api/vehicles';
+        ? `${API_BASE_URL}/vehicles/${editingVehicle}`
+        : `${API_BASE_URL}/vehicles`;
 
       const method = editingVehicle ? 'PUT' : 'POST';
 
@@ -191,7 +193,7 @@ export default function AdminPage() {
     }
 
     try {
-      const response = await fetch(`http://localhost:5000/api/vehicles/${vehicleId}`, {
+      const response = await fetch(`${API_BASE_URL}/vehicles/${vehicleId}`, {
         method: 'DELETE',
       });
 
@@ -243,7 +245,7 @@ export default function AdminPage() {
 
     const fetchCities = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/cities');
+        const response = await fetch(`${API_BASE_URL}/cities`);
         const data = await response.json();
 
         if (data.success && data.data) {

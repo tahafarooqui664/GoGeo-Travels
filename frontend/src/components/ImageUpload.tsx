@@ -2,6 +2,8 @@
 
 import { useState, useRef } from 'react';
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+
 interface ImageUploadProps {
   currentImage?: string;
   onImageUpload: (imageUrl: string) => void;
@@ -39,7 +41,7 @@ const ImageUpload = ({
       formData.append('image', file);
       formData.append('folder', 'vehicles');
 
-      const response = await fetch('http://localhost:5000/api/upload/image', {
+      const response = await fetch(`${API_BASE_URL}/upload/image`, {
         method: 'POST',
         body: formData,
       });
