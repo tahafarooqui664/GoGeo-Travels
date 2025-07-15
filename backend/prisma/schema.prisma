@@ -1,0 +1,81 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model City {
+  id              String           @id @default(cuid())
+  name            String           @unique
+  slug            String           @unique
+  country         String           @default("UK")
+  isActive        Boolean          @default(true)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  bookingRequests BookingRequest[]
+  vehicles        Vehicle[]
+
+  @@map("cities")
+}
+
+model Vehicle {
+  id              String           @id @default(cuid())
+  name            String
+  category        VehicleType
+  capacity        String
+  description     String
+  features        String[]
+  image           String
+  priceRange      String
+  isActive        Boolean          @default(true)
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  cityId          String
+  bookingRequests BookingRequest[]
+  city            City             @relation(fields: [cityId], references: [id], onDelete: Cascade)
+
+  @@map("vehicles")
+}
+
+model BookingRequest {
+  id              String        @id @default(cuid())
+  firstName       String
+  lastName        String
+  email           String
+  phone           String
+  transportMode   VehicleType
+  pickupLocation  String
+  dropoffLocation String
+  pickupDate      DateTime
+  pickupTime      String
+  passengers      String
+  specialRequests String?
+  status          BookingStatus @default(PENDING)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  cityId          String
+  vehicleId       String?
+  city            City          @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  vehicle         Vehicle?      @relation(fields: [vehicleId], references: [id])
+
+  @@map("booking_requests")
+}
+
+enum VehicleType {
+  HELICOPTER
+  PRIVATE_JET
+  BUS
+  PRIVATE_CAR
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}

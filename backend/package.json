@@ -1,0 +1,46 @@
+{
+  "name": "london-aviation-backend",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "seed": "ts-node prisma/seed.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "helicopter",
+    "private-jet",
+    "london",
+    "aviation",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Backend API for London transportation booking platform - helicopters, private jets, buses, and private cars",
+  "dependencies": {
+    "@getbrevo/brevo": "^2.5.0",
+    "@prisma/client": "^6.12.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.13",
+    "cloudinary": "^2.7.0",
+    "cloudinary-react": "^1.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.0",
+    "multer": "^2.0.1",
+    "nodemon": "^3.1.10",
+    "prisma": "^6.12.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@types/morgan": "^1.9.10",
+    "@types/multer": "^2.0.0"
+  }
+}
