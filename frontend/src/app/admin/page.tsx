@@ -327,7 +327,7 @@ export default function AdminPage() {
               <span className="text-white font-bold text-2xl">G</span>
             </div>
             <h1 className="text-2xl font-serif font-bold text-primary-900 mb-2">Admin Portal</h1>
-            <p className="text-primary-600">GoGeo Travels London</p>
+            <p className="text-primary-600">GoGeo Travels</p>
           </div>
 
           <form onSubmit={handleLogin} className="space-y-6">

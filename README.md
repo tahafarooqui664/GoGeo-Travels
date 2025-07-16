@@ -1,6 +1,6 @@
-# GoGeo Travels London
+# GoGeo Travels
 
-An elegant, luxury transportation booking platform for London featuring helicopters, private jets, executive buses, and private cars.
+An elegant, luxury transportation booking platform featuring helicopters, private jets, executive buses, and private cars across multiple cities.
 
 ## 🚁 Features
 

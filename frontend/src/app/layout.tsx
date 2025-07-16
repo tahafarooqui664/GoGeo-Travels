@@ -13,9 +13,9 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: 'GoGeo Travels London - Premium Transportation Services',
-  description: 'Experience luxury transportation in London with our premium helicopters, private jets, executive buses, and private cars. Book your exclusive journey today.',
-  keywords: 'London transport, helicopter rental, private jet, luxury bus, private car, premium transportation, GoGeo Travels',
+  title: 'GoGeo Travels - Premium Transportation Services',
+  description: 'Experience luxury transportation with our premium helicopters, private jets, executive buses, and private cars. Book your exclusive journey today.',
+  keywords: 'luxury transport, helicopter rental, private jet, luxury bus, private car, premium transportation, GoGeo Travels',
 }
 
 export default function RootLayout({

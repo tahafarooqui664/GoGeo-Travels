@@ -1,7 +1,11 @@
 import Link from 'next/link';
+import { useCityContext } from '@/contexts/CityContext';
+import { getCityContent } from '@/config/cityContent';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { selectedCity } = useCityContext();
+  const cityData = getCityContent(selectedCity?.slug || 'london');
 
   const footerLinks = {
     company: [
@@ -37,11 +41,11 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="font-serif text-xl font-bold">GoGeo Travels</h3>
-                <p className="text-sm text-white/80">London</p>
+                <p className="text-sm text-white/80">{cityData.name}</p>
               </div>
             </div>
             <p className="text-white/80 mb-6 leading-relaxed">
-              London's premier luxury transportation service, providing unparalleled comfort
+              {cityData.name}'s premier luxury transportation service, providing unparalleled comfort
               and sophistication for over 15 years.
             </p>
             <div className="flex space-x-4">
@@ -101,10 +105,10 @@ const Footer = () => {
               <div>
                 <p className="text-white/80 text-sm">Phone</p>
                 <a
-                  href="tel:+442084326418"
+                  href={`tel:${cityData.phoneNumber.replace(/\s/g, '')}`}
                   className="text-accent-400 hover:text-accent-300 transition-colors duration-200"
                 >
-                  +44 208 432 6418
+                  {cityData.phoneNumber}
                 </a>
               </div>
               <div>
@@ -118,9 +122,7 @@ const Footer = () => {
               </div>
               <div>
                 <p className="text-white/80 text-sm">Address</p>
-                <p className="text-white/80">
-                  Canary Wharf, London E14 5AB<br />
-                  United Kingdom
+                <p className="text-white/80" dangerouslySetInnerHTML={{ __html: cityData.address }}>
                 </p>
               </div>
             </div>
@@ -151,7 +153,7 @@ const Footer = () => {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-white/80 text-sm mb-4 md:mb-0">
-              © {currentYear} GoGeo Travels London. All rights reserved.
+              © {currentYear} GoGeo Travels. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
               <Link href="#" className="text-white/80 hover:text-accent-400 transition-colors duration-200">

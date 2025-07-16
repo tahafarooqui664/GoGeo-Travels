@@ -20,9 +20,9 @@
     "madrid",
     "booking-platform"
   ],
-  "author": "GoGeo Travels London",
+  "author": "GoGeo Travels",
   "license": "ISC",
-  "description": "GoGeo Travels London - Luxury transportation booking platform for helicopters, private jets, buses, and private cars",
+  "description": "GoGeo Travels - Luxury transportation booking platform for helicopters, private jets, buses, and private cars",
   "dependencies": {
     "@types/node": "^24.0.13",
     "@types/react": "^19.1.8",

@@ -51,7 +51,7 @@ const Navigation = () => {
                 <p className={`text-sm font-semibold tracking-wider ${
                   isScrolled ? 'text-accent-600' : 'text-accent-400'
                 }`}>
-                  LONDON
+                  {selectedCity?.name?.toUpperCase() || 'PREMIUM TRANSPORT'}
                 </p>
               </div>
             </Link>

@@ -93,7 +93,7 @@ const AboutSection = () => {
             <div className="absolute -bottom-6 -left-6 bg-white rounded-xl shadow-xl p-6 max-w-xs">
               <h4 className="font-serif font-bold text-primary-900 mb-2">Why Choose Us?</h4>
               <p className="text-sm text-primary-600">
-                Unmatched luxury, safety, and service excellence in every journey across London.
+                Unmatched luxury, safety, and service excellence in every journey across {cityData.name}.
               </p>
             </div>
           </div>

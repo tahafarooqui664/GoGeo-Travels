@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Admin Portal - GoGeo Travels London',
+  title: 'Admin Portal - GoGeo Travels',
   description: 'Admin portal for managing bookings and fleet',
 };
 

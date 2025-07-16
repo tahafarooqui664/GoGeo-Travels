@@ -10,6 +10,7 @@ export interface CityContent {
   fleetDescription: string;
   aboutDescription: string;
   backgroundImage: string;
+  address: string;
 }
 
 export const cityContent: Record<string, CityContent> = {
@@ -18,13 +19,14 @@ export const cityContent: Record<string, CityContent> = {
     country: 'United Kingdom',
     heroTitle: "Experience London's",
     heroSubtitle: 'Elite Transportation',
-    heroDescription: 'From luxury helicopters soaring above the Thames to private jets connecting you globally, GoGeo Travels London delivers unparalleled comfort and sophistication in every journey.',
+    heroDescription: 'From luxury helicopters soaring above the Thames to private jets connecting you globally, GoGeo Travels delivers unparalleled comfort and sophistication in every journey.',
     trustIndicator: "Trusted by London's Elite",
     phoneNumber: '+44 208 432 6418',
     landmarks: ['Thames', 'Big Ben', 'Tower Bridge', 'Buckingham Palace'],
     fleetDescription: 'Discover our meticulously curated collection of luxury vehicles, each designed to provide an unparalleled transportation experience in the heart of London.',
     aboutDescription: 'Based in London, we provide premium transportation services across the UK capital with our complete fleet of helicopters, private jets, luxury cars, and executive buses.',
-    backgroundImage: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80'
+    backgroundImage: 'https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+    address: 'Canary Wharf, London E14 5AB<br />United Kingdom'
   },
   manchester: {
     name: 'Manchester',
@@ -37,7 +39,8 @@ export const cityContent: Record<string, CityContent> = {
     landmarks: ['Northern Quarter', 'Old Trafford', 'Etihad Stadium', 'Manchester Cathedral'],
     fleetDescription: 'Our premium fleet in Manchester features luxury cars and executive buses, perfectly suited for business travel and group transportation in the Greater Manchester area.',
     aboutDescription: 'Serving Manchester and the Greater Manchester area, we specialize in luxury ground transportation with premium cars and executive buses for business and leisure travel.',
-    backgroundImage: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+    backgroundImage: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+    address: 'Manchester City Centre<br />Manchester M1 1AA<br />United Kingdom'
   },
   budapest: {
     name: 'Budapest',
@@ -50,7 +53,8 @@ export const cityContent: Record<string, CityContent> = {
     landmarks: ['Chain Bridge', 'Buda Castle', 'Parliament Building', 'Széchenyi Thermal Baths'],
     fleetDescription: 'Our elegant fleet in Budapest offers luxury cars and comfortable buses, ideal for exploring the beautiful Hungarian capital and its historic landmarks.',
     aboutDescription: 'Operating in the heart of Budapest, we provide sophisticated transportation solutions with luxury vehicles and executive coaches for exploring Hungary\'s magnificent capital.',
-    backgroundImage: 'https://images.unsplash.com/photo-1541849546-216549ae216d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+    backgroundImage: 'https://images.unsplash.com/photo-1541849546-216549ae216d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+    address: 'Budapest City Center<br />1051 Budapest<br />Hungary'
   },
   madrid: {
     name: 'Madrid',
@@ -63,7 +67,8 @@ export const cityContent: Record<string, CityContent> = {
     landmarks: ['Prado Museum', 'Royal Palace', 'Retiro Park', 'Gran Vía'],
     fleetDescription: 'Our sophisticated fleet in Madrid features luxury vehicles and executive coaches, perfect for experiencing the rich culture and vibrant energy of Spain\'s capital.',
     aboutDescription: 'Based in Madrid, we offer premium transportation services throughout the Spanish capital with luxury cars and executive buses for business and cultural exploration.',
-    backgroundImage: 'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'
+    backgroundImage: 'https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+    address: 'Madrid City Centre<br />28001 Madrid<br />Spain'
   }
 };
 
