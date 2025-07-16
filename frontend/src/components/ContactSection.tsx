@@ -1,6 +1,10 @@
 import React from 'react';
+import { useCityContext } from '@/contexts/CityContext';
+import { getCityContent } from '@/config/cityContent';
 
 const ContactSection = () => {
+  const { selectedCity } = useCityContext();
+  const cityData = getCityContent(selectedCity?.slug || 'london');
   return (
     <section id="contact" className="py-24 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,7 +13,7 @@ const ContactSection = () => {
             Get In Touch
           </h2>
           <p className="text-xl text-white/80 max-w-3xl mx-auto leading-relaxed font-light">
-            Ready to experience London&apos;s finest transportation? Our dedicated team is available 24/7
+            Ready to experience {cityData.name}&apos;s finest transportation? Our dedicated team is available 24/7
             to assist with your luxury travel needs.
           </p>
         </div>
@@ -24,7 +28,7 @@ const ContactSection = () => {
                 </svg>
               </div>
               <h3 className="text-white font-bold text-xl mb-3 tracking-wide">Phone</h3>
-              <p className="text-white/90 text-lg font-medium">+44 208 432 6418</p>
+              <p className="text-white/90 text-lg font-medium">{cityData.phoneNumber}</p>
               <p className="text-white/70 text-sm mt-2">Available 24/7</p>
             </div>
 

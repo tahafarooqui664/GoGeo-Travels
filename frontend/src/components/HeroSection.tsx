@@ -1,8 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { useCityContext } from '@/contexts/CityContext';
+import { getCityContent } from '@/config/cityContent';
 
 const HeroSection = () => {
+  const { selectedCity } = useCityContext();
+  const cityData = getCityContent(selectedCity?.slug || 'london');
   return (
     <section
       id="home"
@@ -12,7 +16,7 @@ const HeroSection = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`,
+          backgroundImage: `url('${cityData.backgroundImage}')`,
         }}
       />
 
@@ -24,24 +28,33 @@ const HeroSection = () => {
         <div className="max-w-4xl mx-auto">
           {/* Main Heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 leading-tight tracking-tight animate-fade-in-up text-shadow">
-            Experience London's
-            <span className="block text-gradient mt-2">Elite Transportation</span>
+            {cityData.heroTitle}
+            <span className="block text-gradient mt-2">{cityData.heroSubtitle}</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-xl md:text-2xl text-white/95 mb-12 max-w-4xl mx-auto leading-relaxed font-light animate-fade-in-up">
-            From luxury helicopters soaring above the Thames to private jets connecting you globally,
-            GoGeo Travels London delivers unparalleled comfort and sophistication in every journey.
+            {cityData.heroDescription}
           </p>
 
           {/* Service Types */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 max-w-6xl mx-auto animate-stagger">
-            {[
-              { icon: '🚁', name: 'Helicopters', desc: 'Sky-high luxury' },
-              { icon: '✈️', name: 'Private Jets', desc: 'Global connections' },
-              { icon: '🚌', name: 'Executive Buses', desc: 'Group comfort' },
-              { icon: '🚗', name: 'Private Cars', desc: 'Personal elegance' },
-            ].map((service, index) => (
+            {(() => {
+              const services = [
+                { icon: '🚗', name: 'Private Cars', desc: 'Personal elegance' },
+                { icon: '🚌', name: 'Executive Buses', desc: 'Group comfort' },
+              ];
+
+              // Add helicopters and jets only for London
+              if (selectedCity?.slug === 'london') {
+                services.unshift(
+                  { icon: '🚁', name: 'Helicopters', desc: 'Sky-high luxury' },
+                  { icon: '✈️', name: 'Private Jets', desc: 'Global connections' }
+                );
+              }
+
+              return services;
+            })().map((service, index) => (
               <div
                 key={index}
                 className="glass-effect rounded-3xl p-8 text-center hover:bg-white/15 smooth-transition cursor-pointer hover-lift border border-white/10"
@@ -75,7 +88,7 @@ const HeroSection = () => {
 
           {/* Trust Indicators */}
           <div className="mt-24 pt-12 border-t border-white/20 animate-fade-in-up">
-            <p className="text-white/90 text-xl mb-8 font-light tracking-wide">Trusted by London's Elite</p>
+            <p className="text-white/90 text-xl mb-8 font-light tracking-wide">{cityData.trustIndicator}</p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
               <div className="text-center">
                 <div className="text-accent-400 text-2xl font-bold mb-1">★★★★★</div>

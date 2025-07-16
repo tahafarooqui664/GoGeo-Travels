@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { apiService, City } from '@/services/api';
+import { getCityContent } from '@/config/cityContent';
 
 interface CitySelectionModalProps {
   isOpen: boolean;
@@ -52,13 +53,8 @@ const CitySelectionModal = ({ isOpen, onCitySelect }: CitySelectionModalProps) =
   };
 
   const getCityDescription = (citySlug: string) => {
-    const descriptions = {
-      london: 'Experience luxury transportation in the heart of the UK with our complete fleet including helicopters and private jets.',
-      manchester: 'Premium ground transportation services with luxury cars and executive buses for Manchester and surrounding areas.',
-      budapest: 'Elegant transportation solutions in the beautiful Hungarian capital with premium cars and comfortable buses.',
-      madrid: 'Sophisticated travel services in Spain\'s vibrant capital with luxury vehicles and executive coaches.'
-    };
-    return descriptions[citySlug as keyof typeof descriptions] || 'Premium transportation services in your selected city.';
+    const cityData = getCityContent(citySlug);
+    return cityData.aboutDescription;
   };
 
   console.log('CitySelectionModal render - isOpen:', isOpen, 'cities:', cities);

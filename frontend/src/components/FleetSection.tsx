@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { apiService, Vehicle } from '@/services/api';
 import { useCityContext } from '@/contexts/CityContext';
+import { getCityContent } from '@/config/cityContent';
 
 const FleetSection = () => {
   const { selectedCity } = useCityContext();
+  const cityData = getCityContent(selectedCity?.slug || 'london');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
   const [loading, setLoading] = useState(true);
@@ -74,8 +76,7 @@ const FleetSection = () => {
             )}
           </h2>
           <p className="text-xl text-neutral-600 max-w-4xl mx-auto leading-relaxed font-light">
-            Discover our meticulously curated collection of luxury vehicles, each designed to provide
-            an unparalleled transportation experience in {selectedCity?.name || 'your selected city'}.
+            {cityData.fleetDescription}
           </p>
         </div>
 
@@ -169,10 +170,10 @@ const FleetSection = () => {
                 Book Your Journey
               </a>
               <a
-                href="tel:+442084326418"
+                href={`tel:${cityData.phoneNumber.replace(/\s/g, '')}`}
                 className="btn-secondary text-lg px-10 py-4"
               >
-                Call +44 208 432 6418
+                Call {cityData.phoneNumber}
               </a>
             </div>
           </div>

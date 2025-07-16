@@ -1,6 +1,10 @@
 import Image from 'next/image';
+import { useCityContext } from '@/contexts/CityContext';
+import { getCityContent } from '@/config/cityContent';
 
 const AboutSection = () => {
+  const { selectedCity } = useCityContext();
+  const cityData = getCityContent(selectedCity?.slug || 'london');
   const stats = [
     { number: '500+', label: 'Happy Clients' },
     { number: '24/7', label: 'Concierge Service' },
@@ -39,16 +43,14 @@ const AboutSection = () => {
           {/* Text Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary-900 mb-6">
-              London's Premier Transportation Service
+              {cityData.name}'s Premier Transportation Service
             </h2>
             <p className="text-xl text-primary-600 mb-6 leading-relaxed">
-              For over 15 years, GoGeo Travels London has been the trusted choice for discerning
-              clients seeking unparalleled luxury transportation across London and beyond.
+              For over 15 years, GoGeo Travels has been the trusted choice for discerning
+              clients seeking unparalleled luxury transportation across {cityData.name} and beyond.
             </p>
             <p className="text-primary-600 mb-8 leading-relaxed">
-              From intimate helicopter tours over the Thames to private jet connections across Europe, 
-              executive bus services for corporate events, and elegant private car transfers, we deliver 
-              exceptional experiences that exceed expectations.
+              {cityData.aboutDescription}
             </p>
 
             {/* Stats */}
@@ -69,7 +71,7 @@ const AboutSection = () => {
                 Book Your Journey
               </a>
               <a
-                href="tel:+442084326418"
+                href={`tel:${cityData.phoneNumber.replace(/\s/g, '')}`}
                 className="bg-primary-100 text-primary-700 px-8 py-3 rounded-xl font-semibold hover:bg-primary-200 transition-all duration-300 text-center"
               >
                 Call Now
@@ -81,8 +83,8 @@ const AboutSection = () => {
           <div className="relative">
             <div className="relative h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Luxury transportation over London"
+                src={cityData.backgroundImage}
+                alt={`Luxury transportation in ${cityData.name}`}
                 fill
                 className="object-cover"
               />
