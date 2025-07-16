@@ -8,7 +8,7 @@ class EmailService {
   constructor() {
     this.apiKey = process.env.BREVO_API_KEY;
     this.senderEmail = process.env.BREVO_SENDER_EMAIL || 'noreply@gogeotravels.com';
-    this.senderName = process.env.BREVO_SENDER_NAME || 'GoGeo Travels London';
+    this.senderName = process.env.BREVO_SENDER_NAME || 'GoGeo Travels';
 
     if (!this.apiKey) {
       console.warn('BREVO_API_KEY is not configured - emails will be logged instead of sent');
@@ -166,7 +166,7 @@ class EmailService {
           </div>
 
           <div class="footer">
-            <p>GoGeo Travels London - Premium Transportation Services</p>
+            <p>GoGeo Travels - Premium Transportation Services</p>
             <p>+44 208 432 6418 | info@gogeotravels.com</p>
           </div>
         </div>
@@ -187,7 +187,7 @@ class EmailService {
       <html>
       <head>
         <meta charset="utf-8">
-        <title>New Contact Message - GoGeo Travels London</title>
+        <title>New Contact Message - GoGeo Travels</title>
         <style>
           body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
           .container { max-width: 600px; margin: 0 auto; padding: 20px; }

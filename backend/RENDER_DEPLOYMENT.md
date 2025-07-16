@@ -24,9 +24,9 @@ Add these in the Render dashboard under "Environment":
 NODE_ENV=production
 FRONTEND_URL=https://your-frontend-domain.vercel.app
 ADMIN_EMAIL=admin@gogeotravels.com
-ADMIN_NAME=GoGeo Travels London Admin
+ADMIN_NAME=GoGeo Travels Admin
 BREVO_SENDER_EMAIL=noreply@gogeotravels.com
-BREVO_SENDER_NAME=GoGeo Travels London
+BREVO_SENDER_NAME=GoGeo Travels
 CLOUDINARY_CLOUD_NAME=dnluxha1i
 CLOUDINARY_API_KEY=199955313277347
 CLOUDINARY_API_SECRET=020nwxY9d2PT9wV_JjBraDRHYv4

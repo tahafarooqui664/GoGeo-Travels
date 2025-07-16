@@ -12,11 +12,11 @@ services:
       - key: ADMIN_EMAIL
         value: admin@gogeotravels.com
       - key: ADMIN_NAME
-        value: GoGeo Travels London Admin
+        value: GoGeo Travels Admin
       - key: BREVO_SENDER_EMAIL
         value: noreply@gogeotravels.com
       - key: BREVO_SENDER_NAME
-        value: GoGeo Travels London
+        value: GoGeo Travels
       - key: CLOUDINARY_CLOUD_NAME
         value: dnluxha1i
       - key: CLOUDINARY_API_KEY
